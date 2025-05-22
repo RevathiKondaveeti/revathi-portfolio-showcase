@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Award, CheckCircle, Certificate } from 'lucide-react';
+import { Award, CheckCircle, Bookmark } from 'lucide-react';
 
 const Certificates = () => {
   const certificates = [
@@ -13,7 +13,7 @@ const Certificates = () => {
     },
     {
       title: "Red Hat Certified Enterprise Application Developer",
-      icon: <Certificate className="h-8 w-8 text-portfolio-accent" />,
+      icon: <Bookmark className="h-8 w-8 text-portfolio-accent" />,
       description: "Expert in developing enterprise applications using Red Hat technologies",
       link: "#"
     },
