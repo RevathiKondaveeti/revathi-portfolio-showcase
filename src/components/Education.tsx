@@ -1,101 +1,59 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Award, CheckCircle, Certificate } from 'lucide-react';
 
-const Education = () => {
+const Certificates = () => {
+  const certificates = [
+    {
+      title: "AWS Certified Cloud Practitioner",
+      icon: <Award className="h-8 w-8 text-portfolio-accent" />,
+      description: "Foundational knowledge of AWS Cloud services and concepts",
+      link: "#"
+    },
+    {
+      title: "Red Hat Certified Enterprise Application Developer",
+      icon: <Certificate className="h-8 w-8 text-portfolio-accent" />,
+      description: "Expert in developing enterprise applications using Red Hat technologies",
+      link: "#"
+    },
+    {
+      title: "Salesforce AI Associate",
+      icon: <CheckCircle className="h-8 w-8 text-portfolio-accent" />,
+      description: "In-depth training on Salesforce AI capabilities and implementation",
+      link: "#"
+    }
+  ];
+
   return (
-    <section id="education" className="py-20 bg-portfolio-gray-light">
+    <section id="certifications" className="py-20 bg-portfolio-gray-light">
       <div className="container mx-auto px-4">
-        <h2 className="section-heading text-center">Education & Certifications</h2>
+        <h2 className="section-heading text-center">Professional Certifications</h2>
         
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-          <Card className="animate-slide-up">
-            <CardHeader>
-              <CardTitle>Education</CardTitle>
-              <CardDescription>Academic background</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div className="bg-white p-5 rounded-lg border border-portfolio-gray-medium">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-lg font-semibold text-portfolio-gray-dark">Bachelor of Computer Science</h3>
-                      <p className="text-portfolio-gray-dark">Koneru Lakshmaiah University</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="bg-portfolio-gray-medium px-2 py-1 rounded text-xs">2026</span>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center gap-2">
-                    <span className="font-medium text-portfolio-accent">GPA: 9.41</span>
-                    <span className="text-xs bg-portfolio-gray-medium px-2 py-1 rounded">Guntur, Andhra Pradesh, India</span>
-                  </div>
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          {certificates.map((cert, index) => (
+            <Card 
+              key={index} 
+              className="overflow-hidden animate-slide-up hover:shadow-lg transition-all duration-300 hover:-translate-y-1" 
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="h-1 bg-portfolio-accent"></div>
+              <CardContent className="p-6 flex flex-col items-center text-center">
+                <div className="mb-4 p-4 bg-portfolio-gray-medium rounded-full">
+                  {cert.icon}
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="animate-slide-up animation-delay-100">
-            <CardHeader>
-              <CardTitle>Certifications</CardTitle>
-              <CardDescription>Professional qualifications</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 p-3 border-b">
-                  <CheckCircle className="h-5 w-5 text-portfolio-accent mt-1" />
-                  <div>
-                    <h3 className="font-medium text-portfolio-gray-dark">AWS Certified Cloud Practitioner</h3>
-                    <a href="#" className="text-sm text-portfolio-accent hover:underline">View Certificate</a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-3 border-b">
-                  <CheckCircle className="h-5 w-5 text-portfolio-accent mt-1" />
-                  <div>
-                    <h3 className="font-medium text-portfolio-gray-dark">Red Hat Certified Enterprise Application Developer</h3>
-                    <a href="#" className="text-sm text-portfolio-accent hover:underline">View Certificate</a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-3">
-                  <CheckCircle className="h-5 w-5 text-portfolio-accent mt-1" />
-                  <div>
-                    <h3 className="font-medium text-portfolio-gray-dark">Salesforce AI Associate</h3>
-                    <p className="text-sm text-portfolio-gray-dark">In-depth training on Salesforce AI capabilities and implementation</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="md:col-span-2 animate-slide-up animation-delay-200">
-            <CardHeader>
-              <CardTitle>Extracurricular Activities</CardTitle>
-              <CardDescription>Beyond academics</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white p-4 rounded-lg border border-portfolio-gray-medium">
-                  <h3 className="font-medium text-portfolio-gray-dark mb-2">University Events</h3>
-                  <p className="text-sm text-portfolio-gray-dark">
-                    Organized and contributed to university events and participated in creative arts.
-                  </p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg border border-portfolio-gray-medium">
-                  <h3 className="font-medium text-portfolio-gray-dark mb-2">Hackathons & Coding Challenges</h3>
-                  <p className="text-sm text-portfolio-gray-dark">
-                    Participated in university-level hackathons and coding challenges, collaborating with peers to develop innovative solutions.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                <h3 className="font-semibold text-lg text-portfolio-gray-dark mb-2">{cert.title}</h3>
+                <p className="text-portfolio-gray-dark text-sm mb-4">{cert.description}</p>
+                <Badge className="bg-portfolio-accent hover:bg-portfolio-accent/80">
+                  <a href={cert.link} className="text-white">View Certificate</a>
+                </Badge>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default Education;
+export default Certificates;
