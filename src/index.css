@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +90,37 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
   }
+}
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.section-heading {
+  @apply text-2xl md:text-3xl font-semibold mb-6 text-portfolio-gray-dark relative;
+}
+
+.section-heading::after {
+  content: '';
+  @apply block w-12 h-1 bg-portfolio-accent mt-2;
+}
+
+.nav-link {
+  @apply px-4 py-2 text-portfolio-gray-dark hover:text-portfolio-accent transition-colors;
+}
+
+.nav-link.active {
+  @apply text-portfolio-accent font-medium;
+}
+
+.project-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.tech-badge {
+  @apply bg-portfolio-gray-medium px-3 py-1 rounded-full text-xs font-medium text-portfolio-gray-dark mr-2 mb-2 inline-block;
 }
