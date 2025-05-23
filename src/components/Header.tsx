@@ -13,7 +13,7 @@ const Header = () => {
       setScrolled(window.scrollY > 20);
       
       // Determine active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'projects', 'education'];
+      const sections = ['home', 'about', 'skills', 'projects'];
       
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -77,12 +77,6 @@ const Header = () => {
           >
             Projects
           </button>
-          <button 
-            onClick={() => scrollToSection('education')}
-            className={`nav-link ${activeSection === 'education' ? 'active' : ''}`}
-          >
-            Education
-          </button>
           
           <div className="ml-4 flex space-x-2">
             <Button size="icon" variant="ghost" asChild>
@@ -141,12 +135,6 @@ const Header = () => {
               className={`py-3 px-4 text-left ${activeSection === 'projects' ? 'text-portfolio-accent font-medium' : 'text-portfolio-gray-dark'}`}
             >
               Projects
-            </button>
-            <button 
-              onClick={() => scrollToSection('education')}
-              className={`py-3 px-4 text-left ${activeSection === 'education' ? 'text-portfolio-accent font-medium' : 'text-portfolio-gray-dark'}`}
-            >
-              Education
             </button>
             
             <div className="flex space-x-4 px-4 py-3">
