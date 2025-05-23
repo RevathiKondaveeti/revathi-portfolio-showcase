@@ -9,13 +9,13 @@ const Certificates = () => {
       title: "AWS Certified Cloud Practitioner",
       icon: <Award className="h-8 w-8 text-gray-800" />,
       description: "Foundational knowledge of AWS Cloud services and concepts",
-      link: "#"
+      link: "https://www.credly.com/badges/e77903ac-981d-45b0-b231-de86d3f1174b/public_url"
     },
     {
       title: "Red Hat Certified Enterprise Application Developer",
       icon: <Bookmark className="h-8 w-8 text-gray-800" />,
       description: "Expert in developing enterprise applications using Red Hat technologies",
-      link: "#"
+      link: "https://www.credly.com/badges/e0c5ee7a-6694-4e5a-83cc-6b8da70d7dc2/public_url"
     },
     {
       title: "Salesforce AI Associate",
@@ -45,7 +45,14 @@ const Certificates = () => {
                 <h3 className="font-semibold text-lg text-gray-900 mb-2">{cert.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{cert.description}</p>
                 <Badge className="bg-gray-800 hover:bg-gray-700">
-                  <a href={cert.link} className="text-white">View Certificate</a>
+                  <a 
+                    href={cert.link} 
+                    className="text-white"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Certificate
+                  </a>
                 </Badge>
               </CardContent>
             </Card>
